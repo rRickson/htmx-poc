@@ -6,7 +6,6 @@
     <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Please add your most valuable data for us to sell:</h1>
 
 <form hx-post="{% url 'sample-post' %}" hx-target="#message">
     {% csrf_token %}
@@ -16,6 +15,7 @@
     <input type="submit" value="Submit">
 </form>
 
+<!-- #Attribute Inheritance -->
 <div hx-confirm="Are you sure?" >
     {% csrf_token %}
     <div id="response-div"></div>
