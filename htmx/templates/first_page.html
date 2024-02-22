@@ -1,32 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Simple form</title>
-    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.7.3/dist/htmx.min.js"></script>
 </head>
-<body>
 
-<form hx-post="{% url 'sample-post' %}" hx-target="#message">
-    {% csrf_token %}
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="color" name="favourite_color" placeholder="Favourite color" required>
-    <input type="submit" value="Submit">
-</form>
+<body class="bg-gray-100">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="font-semibold text-xl text-indigo-600">Company Name</a>
+                </div>
+                <div class="flex">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">Features</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">Pricing</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<!-- #Attribute Inheritance -->
-<div hx-confirm="Are you sure?" >
-    {% csrf_token %}
-    <div id="response-div"></div>
-    <button hx-delete="{% url 'sample-post' %}" hx-target="#response-div" hx-swap="beforeend">
-        Delete My Account
-    </button>
-    <button hx-put="{% url 'sample-post' %}" hx-target="#message">
-        Update My Account
-    </button>
-</div>
-<div id="message"></div>
+    <main class="container mx-auto px-4 py-8">
+        <section class="text-center">
+            <h1 class="text-4xl font-semibold text-gray-900">Welcome to our platform</h1>
+            <p class="mt-4 text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
 
+        <section class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-xl font-semibold text-gray-900">Feature 1</h2>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-xl font-semibold text-gray-900">Feature 2</h2>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <h2 class="text-xl font-semibold text-gray-900">Feature 3</h2>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </section>
+
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-semibold text-gray-900">Get Started Today</h2>
+            <p class="mt-4 text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="mt-8">
+                <button hx-get="/signup" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded hover:bg-indigo-700">Sign Up</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 py-8">
+        <div class="container mx-auto px-4">
+            <p class="text-center">&copy; 2024 Company Name. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
+
 </html>
